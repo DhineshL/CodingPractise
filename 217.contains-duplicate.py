@@ -11,10 +11,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        nums.sort()
+        nums_count_map = {}
+        for num in nums:
+            nums_count_map[num] = nums_count_map.get(num,0)+1
 
-        for i in range(1,len(nums)):
-            if nums[i] == nums[i-1]:
+            if nums_count_map[num]>1:
                 return True
         
         return False
